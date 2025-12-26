@@ -1,0 +1,1 @@
+{ "indexName": "properties", "dimension": 1536, "metric": "cosine", "metadata_config": { "indexed": ["price", "city", "bedrooms", "type"] } }
