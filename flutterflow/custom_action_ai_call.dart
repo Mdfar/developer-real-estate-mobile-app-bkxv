@@ -1,0 +1,3 @@
+// Custom Action for FlutterFlow to trigger the AI Assistant import '/backend/firebase_storage/storage.dart'; import '/auth/firebase_auth/auth_util.dart'; import 'package:cloud_functions/cloud_functions.dart';
+
+Future<dynamic> callAiAssistant( String userQuery, List<dynamic> chatHistory, ) async { try { HttpsCallable callable = FirebaseFunctions.instance.httpsCallable('propertyConcierge'); final result = await callable.call({ 'userQuery': userQuery, 'conversationHistory': chatHistory, }); return result.data; } catch (e) { return {'reply': 'I am sorry, I am having trouble connecting to the property database.', 'error': e.toString()}; } }
